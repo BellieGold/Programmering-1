@@ -15,10 +15,14 @@
 </head>
 
 <body>
-	<script>
-	console.log("hello");
 
-		//document.writeln("hello");
+	<script>
+	//console.log("hello");
+
+		
+		
+
+//Created an array & populate for the weekdays
 	var weekday = new Array(7);
 	weekday[0] =  "Sunday";
 	weekday[1] = "Monday";
@@ -27,7 +31,9 @@
 	weekday[4] = "Thursday";
 	weekday[5] = "Friday";
 	weekday[6] = "Saturday";
+/////////////////////////////////
 
+//Create an array and populaate for the months in a year
 	var month = new Array(12);
 	month[0] = "January";
 	month[1] = "February";
@@ -41,77 +47,66 @@
 	month[9] = "October";
 	month[10] = "November";
 	month[11] = "December";
+///////////////////////////////
 
+	getDaysInMonth(2016); //Function call to our customized function.
 
-	getDaysInMonth(2016);
 
 	function getDaysInMonth( year) {
 
-	     var date = new Date(year,0);
+	     var date = new Date(year,0); //Create a date object with the year provided -2016.  The zero(0) is for the default first month of the year-January
 
-	   //  document.writeln(date.getMonth() );
+	   
 
-	     var days = [];
+	     var days = []; //create an array to store all the days in the year provided -2016
 
-	     var fmonth=[];
+	     var fmonth=[]; //create an array to store all teh months in the year provided-2016
 
-	     var count=0;
-	     var tempMon = date.getMonth() ;
+	 
+	     var tempMon = date.getMonth() ; //getting the starting mont of the year to start an inner loop with
 
-	     while (date.getFullYear() ==2016 ) {
+	     document.writeln("<table style='width:100%'> <tr> <th>Days</th> <th>Day</th> <th>Month</th> </tr>"); //we
+
+
+	     while (date.getFullYear() ==2016 ) //while the date object still has the year provided-(2016) do the following
+	     { 
 
 	       
 
-	        fmonth.push(date.getMonth());
+	        fmonth.push(date.getMonth()); //push the first month into the month storage array
 
 
-	        while (date.getMonth() == tempMon ){
+	        while (date.getMonth() == tempMon ){ //While the month hasn't changed do the following
 
+	        	// &nbsp is used to print "space"
 
+	        	
+	        	document.writeln( "<tr><td>"+weekday[date.getDay()] + "&nbsp;&nbsp;&nbsp;&nbsp; </td><td>"+date.getDate() +" </td>  <td>"+month[date.getMonth()] +"</td> </tr>");
 
-	        	document.writeln( weekday[date.getDay()] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+date.getDate() +" "+month[date.getMonth()] +"<br>");
+	        	
 
-	        	days.push( date.getDay() ) ;
+	        	days.push( date.getDay() ) ; // push the current day of the month-loop into the days array.
 
-	        	date.setDate(date.getDate() +1);
+	        	date.setDate(date.getDate() +1); //Increase the day of the month by 1;
 
 	        	
 	        }
 
-	       // document.writeln("<br>");
-	        	tempMon = date.getMonth() ;
-	       // days.push( new Date(date.)  );
-	        date.setMonth(tempMon);
+	     
+	        	tempMon = date.getMonth() ; // get the nextmonth and store it in the variable tempMon
 
-	        //document.writeln(date);
+	       
+	        date.setMonth(tempMon); //go to the next month
 
 
-	     }
+	     } document.writeln("</table> "); //end of table
 
-	    // document.writeln("total number of days "+ count);
-	    // return days;
+	     document.writeln(" <br> total number of days "+ days.length); //since every day of the year is satored inthe days aray we just inquire for the size/lenght of it
+	    
 	  
 
-	/*   for (index in fmonth ){
-
-	    	var temp = fmonth[index];
-	    	
-	    	//document.writeln( month[temp]+"  <br>");
-
-	    	//document.writeln("\n");
-	    } 
-	    
-	    for(index in days){
-
-	    	var temp = days[index];
-
-	    	document.writeln( weekday[temp]+ "<br>" );
-
-
-	    }
-	    */
-	    //document.writeln(days);
 	}
+
 
 	</script>
 </body>
